@@ -4,7 +4,7 @@
 const int WIN_WIDTH = 1200, WIN_HEIGHT = 720;
 const int FPS = 60;
 
-enum Scene { START, SELECT, STAGE1, OVER, CLEAR };
+enum Scene { START, SELECT, STAGE1, STAGE2, STAGE3, OVER, CLEAR };
 Scene currentScene = START;
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
@@ -24,15 +24,24 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		switch (currentScene)
 		{
 		case START:
-			drawTextC(WIN_WIDTH * 0.5f, WIN_HEIGHT * 0.7f, "Press A", 0xffffff, 50);
+			drawTextC(WIN_WIDTH * 0.5f, WIN_HEIGHT * 0.7f, "PRESS SPACE", 0xffffff, 50);
+			if (CheckHitKey(KEY_INPUT_SPACE) == 1) currentScene = STAGE1;
 			break;
 		case SELECT:
 			break;
 		case STAGE1:
+			drawTextC(WIN_WIDTH * 0.5f, WIN_HEIGHT * 0.7f, "SELECT STAGE", 0xffffff, 50);
+			if (CheckHitKey(KEY_INPUT_SPACE) == 1) currentScene = CLEAR;
+			break;
+		case STAGE2:
+			break;
+		case STAGE3:
 			break;
 		case OVER:
 			break;
 		case CLEAR:
+			drawTextC(WIN_WIDTH * 0.5f, WIN_HEIGHT * 0.7f, "CLEAR", 0xffffff, 50);
+			drawTextC(WIN_WIDTH * 0.5f, WIN_HEIGHT * 0.8f, "SPACE TO TITLE", 0xffffff, 50);
 			break;
 		default:
 			break;
