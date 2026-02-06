@@ -39,5 +39,7 @@
 # debug information files
 *.dwo
 
-# Visual Studio temporary cache and local settings
+# Visual Studio local cache and IntelliSense databases
+# These files are machine-specific and often locked by the IDE
 .vs/
+Browse.VC.db
