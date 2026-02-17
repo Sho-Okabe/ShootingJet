@@ -1,5 +1,6 @@
 #include "DxLib.h";
 #include "UI.h";
+#include "Stage.h";
 
 const int WIN_WIDTH = 1200, WIN_HEIGHT = 720;
 const int FPS = 60;
@@ -25,6 +26,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		{
 		case START:
 			drawTextC(WIN_WIDTH * 0.5f, WIN_HEIGHT * 0.7f, "PRESS SPACE", 0xffffff, 50);
+			setCam();
 			if (CheckHitKey(KEY_INPUT_SPACE) == 1) currentScene = STAGE1;
 			break;
 		case SELECT:
