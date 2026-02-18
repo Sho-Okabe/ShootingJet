@@ -1,9 +1,11 @@
 #include "DxLib.h";
 #include "UI.h";
-#include "Stage.h";
 
 const int WIN_WIDTH = 1200, WIN_HEIGHT = 720;
 const int FPS = 60;
+int mdl = MV1LoadModel("model/box.mqoz");
+const VECTOR CAM_POS = VGet(0.0f, 200.0f, 0.0f);
+const VECTOR OBJ_TAR = VGet(0.0f, 0.0f, 400.0f);
 
 enum Scene { START, SELECT, STAGE1, STAGE2, STAGE3, OVER, CLEAR };
 Scene currentScene = START;
@@ -16,6 +18,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	if (DxLib_Init() == -1) return -1;
 	SetBackgroundColor(0, 0, 0);
 	SetDrawScreen(DX_SCREEN_BACK);//ï`âÊÇ…ó†ÇÃâÊñ Åiï\é¶Ç≥ÇÍÇƒÇ¢Ç»Ç¢âÊñ ÅjÇÇ∑ÇÈ
+	ChangeLightTypeDir(VGet(1.0f, -1.0f, 0.0f));
 
 	while (true)
 	{
@@ -26,14 +29,25 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		{
 		case START:
 			drawTextC(WIN_WIDTH * 0.5f, WIN_HEIGHT * 0.7f, "PRESS SPACE", 0xffffff, 50);
-			setCam();
+			SetCameraPositionAndTarget_UpVecY(CAM_POS, OBJ_TAR); 
+			if (mdl == -1)
+			{
+				drawTextC(WIN_WIDTH * 0.5f, WIN_HEIGHT * 0.2f, "no model", 0xffffff, 20);
+			}
+			else
+			{
+				MV1SetPosition(mdl, OBJ_TAR);
+				MV1DrawModel(mdl);
+			}
+
 			if (CheckHitKey(KEY_INPUT_SPACE) == 1) currentScene = STAGE1;
 			break;
 		case SELECT:
+			drawTextC(WIN_WIDTH * 0.5f, WIN_HEIGHT * 0.7f, "SELECT STAGE", 0xffffff, 50);  
 			break;
 		case STAGE1:
-			drawTextC(WIN_WIDTH * 0.5f, WIN_HEIGHT * 0.7f, "SELECT STAGE", 0xffffff, 50);
-			if (CheckHitKey(KEY_INPUT_SPACE) == 1) currentScene = CLEAR;
+			drawTextC(WIN_WIDTH * 0.5f, WIN_HEIGHT * 0.7f, "STAGE1", 0xffffff, 50);
+			//if (CheckHitKey(KEY_INPUT_SPACE) == 1) currentScene = CLEAR;
 			break;
 		case STAGE2:
 			break;
@@ -43,7 +57,6 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 			break;
 		case CLEAR:
 			drawTextC(WIN_WIDTH * 0.5f, WIN_HEIGHT * 0.7f, "CLEAR", 0xffffff, 50);
-			drawTextC(WIN_WIDTH * 0.5f, WIN_HEIGHT * 0.8f, "SPACE TO TITLE", 0xffffff, 50);
 			break;
 		default:
 			break;

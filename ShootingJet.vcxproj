@@ -140,10 +140,12 @@
     <ClInclude Include="DxLibFile\DxDataTypeWin.h" />
     <ClInclude Include="DxLibFile\DxFunctionWin.h" />
     <ClInclude Include="DxLibFile\DxLib.h" />
+    <ClInclude Include="Stage.h" />
     <ClInclude Include="UI.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Stage.cpp" />
     <ClCompile Include="UI.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
