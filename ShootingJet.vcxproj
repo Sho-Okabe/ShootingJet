@@ -135,6 +135,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Chara.h" />
     <ClInclude Include="DxLibFile\DxCompileConfig.h" />
     <ClInclude Include="DxLibFile\DxDataType.h" />
     <ClInclude Include="DxLibFile\DxDataTypeWin.h" />
@@ -144,6 +145,7 @@
     <ClInclude Include="UI.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Chara.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Stage.cpp" />
     <ClCompile Include="UI.cpp" />

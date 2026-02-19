@@ -1,9 +1,6 @@
 ﻿  main.cpp
-C:\repos\SelfPractice\DxLibProjects\ShootingJet\main.cpp(1,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-C:\repos\SelfPractice\DxLibProjects\ShootingJet\main.cpp(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-C:\repos\SelfPractice\DxLibProjects\ShootingJet\main.cpp(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-C:\repos\SelfPractice\DxLibProjects\ShootingJet\main.cpp(39,44): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\repos\SelfPractice\DxLibProjects\ShootingJet\main.cpp(39,25): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\repos\SelfPractice\DxLibProjects\ShootingJet\main.cpp(50,43): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\repos\SelfPractice\DxLibProjects\ShootingJet\main.cpp(50,24): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\repos\SelfPractice\DxLibProjects\ShootingJet\main.cpp(44,44): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\repos\SelfPractice\DxLibProjects\ShootingJet\main.cpp(44,25): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\repos\SelfPractice\DxLibProjects\ShootingJet\main.cpp(56,43): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\repos\SelfPractice\DxLibProjects\ShootingJet\main.cpp(56,24): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
   ShootingJet.vcxproj -> C:\repos\SelfPractice\DxLibProjects\ShootingJet\x64\Debug\ShootingJet.exe

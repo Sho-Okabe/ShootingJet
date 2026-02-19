@@ -1,6 +1,7 @@
-#include "DxLib.h";
-#include "UI.h";
-#include "Stage.h";
+#include "DxLib.h"
+#include "UI.h"
+#include "Stage.h"
+#include "Chara.h"
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 {
@@ -17,13 +18,17 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	const int FPS = 60;
 	SetupCamera_Ortho(400.0f);
 	int mdl = MV1LoadModel("model/chest15_grid.mqoz");
-	int player = MV1LoadModel("model/Capsule.mqoz");
+	int playerModel = MV1LoadModel("model/Capsule.mqoz");
+
 	const VECTOR CAM_POS = VGet(600.0f, 565.0f, 0.0f);
 	const VECTOR OBJ_MAP = VGet(0.0f, 0.0f, 600.0f);
 	VECTOR ObjTar = VGet(0.0f, 10.0f, 600.0f);
 	enum PlayStage { START, PLAY, CLEAR, OVER };
 	PlayStage currentStage = START;
 	float size = 30.0f;
+
+	Chara player;
+	player.charaPos = ObjTar;
 
 	while (true)
 	{
@@ -41,10 +46,11 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 			else
 			{
 				MV1SetPosition(mdl, OBJ_MAP);
-				MV1DrawModel(mdl); 
-				MV1SetPosition(player, ObjTar);
-				MV1SetScale(player, VGet(0.2f, 0.2f, 0.2f));
-				MV1DrawModel(player);
+				MV1DrawModel(mdl);
+				player.CreateChara();
+				MV1SetPosition(playerModel, ObjTar);
+				MV1SetScale(playerModel, VGet(0.2f, 0.2f, 0.2f));
+				MV1DrawModel(playerModel);
 			}
 
 			drawTextC(WIN_WIDTH * 0.5f, WIN_HEIGHT * 0.7f, "PRESS SPACE", 0xffffff, 50);
