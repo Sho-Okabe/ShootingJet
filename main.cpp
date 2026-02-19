@@ -19,6 +19,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	SetupCamera_Ortho(400.0f);
 	int mdl = MV1LoadModel("model/chest15_grid.mqoz");
 	int playerModel = MV1LoadModel("model/Capsule.mqoz");
+	int bgm = LoadSoundMem("audio/bgm.mp3");
+	bool playBGM = false;
 
 	const VECTOR CAM_POS = VGet(600.0f, 565.0f, 0.0f);
 	const VECTOR OBJ_MAP = VGet(0.0f, 0.0f, 600.0f);
@@ -38,6 +40,11 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		SetCameraPositionAndTarget_UpVecY(CAM_POS, OBJ_MAP);
 		MV1SetPosition(mdl, OBJ_MAP);
 		MV1DrawModel(mdl);
+		if (!playBGM)
+		{
+			PlaySoundMem(bgm, DX_PLAYTYPE_LOOP);
+			playBGM = true;
+		}
 
 		player.CreateChara();
 		player.IsMouseOverGrid();
@@ -46,8 +53,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		{
 			case START:
 
-				drawTextC(WIN_WIDTH * 0.5f, WIN_HEIGHT * 0.7f, "PRESS SPACE", 0xffffff, 50);
-				//if (CheckHitKey(KEY_INPUT_SPACE) == 1) currentScene = STAGE1;
+				//drawTextC(WIN_WIDTH * 0.5f, WIN_HEIGHT * 0.7f, "PRESS SPACE", 0xffffff, 50);
+				//if (CheckHitKey(KEY_INPUT_SPACE) == 1) currentStage = PLAY;
 				break;
 			case PLAY:
 
