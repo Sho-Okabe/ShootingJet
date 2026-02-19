@@ -39,6 +39,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		MV1DrawModel(mdl);
 
 		player.CreateChara();
+		player.IsMouseOverGrid();
+
 		MV1SetPosition(playerModel, ObjTar);
 		MV1SetScale(playerModel, VGet(0.2f, 0.2f, 0.2f));
 		MV1DrawModel(playerModel);
