@@ -7,16 +7,16 @@
       "RelativeMoniker": "D:0:0:{75F43E28-7BDE-42D4-8F0B-76DC51726D63}|ShootingJet.vcxproj|solutionrelative:main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{75F43E28-7BDE-42D4-8F0B-76DC51726D63}|ShootingJet.vcxproj|C:\\repos\\SelfPractice\\DxLibProjects\\ShootingJet\\Stage.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{75F43E28-7BDE-42D4-8F0B-76DC51726D63}|ShootingJet.vcxproj|solutionrelative:Stage.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{75F43E28-7BDE-42D4-8F0B-76DC51726D63}|ShootingJet.vcxproj|C:\\repos\\SelfPractice\\DxLibProjects\\ShootingJet\\stage.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{75F43E28-7BDE-42D4-8F0B-76DC51726D63}|ShootingJet.vcxproj|solutionrelative:stage.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{75F43E28-7BDE-42D4-8F0B-76DC51726D63}|ShootingJet.vcxproj|C:\\repos\\SelfPractice\\DxLibProjects\\ShootingJet\\UI.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{75F43E28-7BDE-42D4-8F0B-76DC51726D63}|ShootingJet.vcxproj|solutionrelative:UI.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{75F43E28-7BDE-42D4-8F0B-76DC51726D63}|ShootingJet.vcxproj|C:\\repos\\SelfPractice\\DxLibProjects\\ShootingJet\\Stage.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{75F43E28-7BDE-42D4-8F0B-76DC51726D63}|ShootingJet.vcxproj|solutionrelative:Stage.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{75F43E28-7BDE-42D4-8F0B-76DC51726D63}|ShootingJet.vcxproj|C:\\repos\\SelfPractice\\DxLibProjects\\ShootingJet\\UI.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -34,13 +34,13 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "Stage.h",
               "DocumentMoniker": "C:\\repos\\SelfPractice\\DxLibProjects\\ShootingJet\\Stage.h",
               "RelativeDocumentMoniker": "Stage.h",
               "ToolTip": "C:\\repos\\SelfPractice\\DxLibProjects\\ShootingJet\\Stage.h",
               "RelativeToolTip": "Stage.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAPAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2026-02-17T19:00:26.208Z"
             },
@@ -58,20 +58,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Stage.cpp",
               "DocumentMoniker": "C:\\repos\\SelfPractice\\DxLibProjects\\ShootingJet\\Stage.cpp",
               "RelativeDocumentMoniker": "Stage.cpp",
               "ToolTip": "C:\\repos\\SelfPractice\\DxLibProjects\\ShootingJet\\Stage.cpp",
               "RelativeToolTip": "Stage.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAnAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2026-02-17T19:00:08.457Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-17T19:00:08.457Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "UI.cpp",
               "DocumentMoniker": "C:\\repos\\SelfPractice\\DxLibProjects\\ShootingJet\\UI.cpp",
               "RelativeDocumentMoniker": "UI.cpp",
@@ -89,7 +88,7 @@
               "RelativeDocumentMoniker": "main.cpp",
               "ToolTip": "C:\\repos\\SelfPractice\\DxLibProjects\\ShootingJet\\main.cpp",
               "RelativeToolTip": "main.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAwAAAAAAAAAA==",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABEAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2026-02-06T06:51:09.07Z",
               "EditorCaption": ""
