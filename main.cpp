@@ -34,31 +34,27 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	{
 		ClearDrawScreen();
 
+		SetCameraPositionAndTarget_UpVecY(CAM_POS, OBJ_MAP);
+		MV1SetPosition(mdl, OBJ_MAP);
+		MV1DrawModel(mdl);
+
+		player.CreateChara();
+		MV1SetPosition(playerModel, ObjTar);
+		MV1SetScale(playerModel, VGet(0.2f, 0.2f, 0.2f));
+		MV1DrawModel(playerModel);
 
 		switch (currentStage)
 		{
-		case START:
-			SetCameraPositionAndTarget_UpVecY(CAM_POS, OBJ_MAP); 
-			if (mdl == -1)
-			{
-				drawTextC(WIN_WIDTH * 0.5f, WIN_HEIGHT * 0.2f, "no model", 0xffffff, 20);
-			}
-			else
-			{
-				MV1SetPosition(mdl, OBJ_MAP);
-				MV1DrawModel(mdl);
-				player.CreateChara();
-				MV1SetPosition(playerModel, ObjTar);
-				MV1SetScale(playerModel, VGet(0.2f, 0.2f, 0.2f));
-				MV1DrawModel(playerModel);
-			}
+			case START:
 
-			drawTextC(WIN_WIDTH * 0.5f, WIN_HEIGHT * 0.7f, "PRESS SPACE", 0xffffff, 50);
-			//if (CheckHitKey(KEY_INPUT_SPACE) == 1) currentScene = STAGE1;
-			break;
-		
-		default:
-			break;
+				drawTextC(WIN_WIDTH * 0.5f, WIN_HEIGHT * 0.7f, "PRESS SPACE", 0xffffff, 50);
+				//if (CheckHitKey(KEY_INPUT_SPACE) == 1) currentScene = STAGE1;
+				break;
+			case PLAY:
+
+				break;
+			default:
+				break;
 		}
 
 		ScreenFlip(); //— ‰æ–Ê‚Ì“à—e‚ª•\‰æ–Ê‚É”½‰f‚³‚¹‚é
