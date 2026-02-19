@@ -28,6 +28,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	float size = 30.0f;
 
 	Chara player;
+	player.model = playerModel;
 	player.charaPos = ObjTar;
 
 	while (true)
@@ -40,10 +41,6 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 		player.CreateChara();
 		player.IsMouseOverGrid();
-
-		MV1SetPosition(playerModel, ObjTar);
-		MV1SetScale(playerModel, VGet(0.2f, 0.2f, 0.2f));
-		MV1DrawModel(playerModel);
 
 		switch (currentStage)
 		{

@@ -5,6 +5,7 @@
 class Chara
 {
 	public :
+		int model;
 		VECTOR charaPos;
 		VECTOR thisGridsPos[4];
 		void CreateChara();
@@ -39,6 +40,11 @@ void Chara::CreateChara()
 		thisGridsPos[i] = gridPos;
 		DrawGrid(gridPos, GetColor(200, 200, 200), true);
     }
+
+	MV1SetPosition(model, charaPos);
+	MV1SetScale(model, VGet(0.2f, 0.2f, 0.2f));
+	MV1DrawModel(model);
+
 }
 
 void Chara::IsMouseOverGrid()
@@ -64,6 +70,11 @@ void Chara::IsMouseOverGrid()
 		{
 			DrawTriangle3D(v1, v2, v3, GetColor(200, 0, 0), true);
 			DrawTriangle3D(v3, v4, v1, GetColor(200, 0, 0), true);
+
+			if ((GetMouseInput() & MOUSE_INPUT_LEFT) != 0)
+			{
+				charaPos = thisGridsPos[i];
+			}
 		}
 	}
 }
