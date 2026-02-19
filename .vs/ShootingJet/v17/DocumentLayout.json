@@ -42,8 +42,7 @@
               "RelativeToolTip": "Stage.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-02-17T19:00:26.208Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-17T19:00:26.208Z"
             },
             {
               "$type": "Document",
@@ -55,8 +54,7 @@
               "RelativeToolTip": "UI.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-02-06T06:51:11.546Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-06T06:51:11.546Z"
             },
             {
               "$type": "Document",
@@ -66,7 +64,7 @@
               "RelativeDocumentMoniker": "Stage.cpp",
               "ToolTip": "C:\\repos\\SelfPractice\\DxLibProjects\\ShootingJet\\Stage.cpp",
               "RelativeToolTip": "Stage.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAeAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2026-02-17T19:00:08.457Z",
               "EditorCaption": ""
@@ -81,8 +79,7 @@
               "RelativeToolTip": "UI.cpp",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2026-02-06T06:51:10.106Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-06T06:51:10.106Z"
             },
             {
               "$type": "Document",
@@ -92,7 +89,7 @@
               "RelativeDocumentMoniker": "main.cpp",
               "ToolTip": "C:\\repos\\SelfPractice\\DxLibProjects\\ShootingJet\\main.cpp",
               "RelativeToolTip": "main.cpp",
-              "ViewState": "AgIAABUAAAAAAAAAAAAAACAAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2026-02-06T06:51:09.07Z",
               "EditorCaption": ""
