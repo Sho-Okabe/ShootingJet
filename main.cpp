@@ -29,7 +29,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	PlayStage currentStage = START;
 	float size = 30.0f;
 
-	Chara player;
+	Player player;
 	player.model = playerModel;
 	player.charaPos = ObjTar;
 

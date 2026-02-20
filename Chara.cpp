@@ -2,16 +2,6 @@
 #include <vector>
 #include "DxLib.h"
 
-class Chara
-{
-	public :
-		int model;
-		VECTOR charaPos;
-		VECTOR thisGridsPos[4];
-		void CreateChara();
-		void IsMouseOverGrid();
-};
-
 void DrawGrid(VECTOR pos, unsigned int Color, int FillFlag)//ŽlŠpŒ`‚ð•`‰æ‚·‚é
 {
 	float gridSize = 30.0f;
@@ -23,9 +13,30 @@ void DrawGrid(VECTOR pos, unsigned int Color, int FillFlag)//ŽlŠpŒ`‚ð•`‰æ‚·‚é
 	DrawTriangle3D(v3, v4, v1, Color, FillFlag);
 }
 
-void Chara::CreateChara()
+class Chara
 {
-	VECTOR v = charaPos;
+	public :
+		int model;
+		VECTOR charaPos;
+		VECTOR thisGridsPos[4];
+		virtual void CreateChara()
+		{
+			MV1SetPosition(model, charaPos);
+			MV1SetScale(model, VGet(0.2f, 0.2f, 0.2f));
+			MV1DrawModel(model);
+		}
+};
+
+
+class Player : public Chara
+{
+	public:
+		void CreateChara() override;
+		void IsMouseOverGrid();
+};
+
+void Player::CreateChara()
+{
 	float gridRange = 60.0f;
 
 	int x, z;
@@ -36,18 +47,15 @@ void Chara::CreateChara()
 	{
 		x = x_coords[i % 4];
 		z = z_coords[i % 4];
-		VECTOR gridPos = VAdd(VGet(x * gridRange, 0.0f, z * gridRange), v);
+		VECTOR gridPos = VAdd(VGet(x * gridRange, 0.0f, z * gridRange), charaPos);
 		thisGridsPos[i] = gridPos;
 		DrawGrid(gridPos, GetColor(200, 200, 200), true);
     }
 
-	MV1SetPosition(model, charaPos);
-	MV1SetScale(model, VGet(0.2f, 0.2f, 0.2f));
-	MV1DrawModel(model);
-
+	Chara::CreateChara();
 }
 
-void Chara::IsMouseOverGrid()
+void Player::IsMouseOverGrid()
 {
 	float gridSize = 30.0f;
 
@@ -78,3 +86,6 @@ void Chara::IsMouseOverGrid()
 		}
 	}
 }
+
+class Enemy : public Chara
+{};
