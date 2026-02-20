@@ -16,4 +16,10 @@ class Player : public Chara
 		void IsMouseOverGrid(); 
 };
 
-class Enemy : public Chara {};
+class Enemy : public Chara 
+{
+	public:
+		bool isDestroy;
+		void DestroyCheck(Player* player);
+		void CreateChara();
+};

@@ -88,4 +88,28 @@ void Player::IsMouseOverGrid()
 }
 
 class Enemy : public Chara
-{};
+{
+	public:
+		bool isDestroy = false;
+		void DestroyCheck(Player* player);
+		void CreateChara();
+};
+
+void Enemy::DestroyCheck(Player* player)
+{
+	float dx = player->charaPos.x - this->charaPos.x;
+	float dz = player->charaPos.z - this->charaPos.z;
+	float distanceSquared = (dx * dx) + (dz * dz);
+	if (distanceSquared < 0.001f)
+	{
+		isDestroy = true;
+	}
+}
+void Enemy::CreateChara()
+{
+	if (!isDestroy)
+	{
+		Chara::CreateChara();
+	}
+}
+

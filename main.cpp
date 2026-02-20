@@ -30,13 +30,15 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	PlayStage currentStage = START;
 	float size = 30.0f;
 
-	Player player;
-	player.model = playerModel;
-	player.charaPos = ObjTar;
+	Player *player = new Player();
+	player->model = playerModel;
+	player->charaPos = ObjTar;
 
-	Enemy enemy;
-	enemy.model = enemyModel;
-	enemy.charaPos = VGet(0.0f, 30.0f, 660.0f);
+	Enemy enemyA, enemyB;
+	enemyA.model = enemyModel;
+	enemyB.model = enemyModel;
+	enemyA.charaPos = VGet(0.0f, 30.0f, 720.0f);
+	enemyB.charaPos = VGet(0.0f, 30.0f, 480.0f);
 
 	while (true)
 	{
@@ -51,20 +53,27 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 			playBGM = true;
 		}
 
-		player.CreateChara();
-		player.IsMouseOverGrid(); 
-		enemy.CreateChara();
+		player->CreateChara();
+		enemyA.CreateChara();
+		enemyB.CreateChara();
+
 
 		switch (currentStage)
 		{
 			case START:
 
-				//drawTextC(WIN_WIDTH * 0.5f, WIN_HEIGHT * 0.7f, "PRESS SPACE", 0xffffff, 50);
-				//if (CheckHitKey(KEY_INPUT_SPACE) == 1) currentStage = PLAY;
+				drawTextC(WIN_WIDTH * 0.5f, WIN_HEIGHT * 0.7f, "PRESS SPACE", 0xffffff, 50);
+				if (CheckHitKey(KEY_INPUT_SPACE) == 1) currentStage = PLAY;
 				break;
 			case PLAY:
+				player->IsMouseOverGrid();
+				enemyA.DestroyCheck(player);
+				enemyB.DestroyCheck(player);
+				if(enemyA.isDestroy && enemyB.isDestroy) currentStage = CLEAR;
 
 				break;
+			case CLEAR:
+				drawTextC(WIN_WIDTH * 0.5f, WIN_HEIGHT * 0.7f, "GAME CLEAR", 0xffffff, 50);
 			default:
 				break;
 		}
