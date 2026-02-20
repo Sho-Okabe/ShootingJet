@@ -19,6 +19,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	SetupCamera_Ortho(400.0f);
 	int mdl = MV1LoadModel("model/chest15_grid.mqoz");
 	int playerModel = MV1LoadModel("model/Capsule.mqoz");
+	int enemyModel = MV1LoadModel("model/Sphere.mqoz");
 	int bgm = LoadSoundMem("audio/bgm.mp3");
 	bool playBGM = false;
 
@@ -32,6 +33,10 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	Player player;
 	player.model = playerModel;
 	player.charaPos = ObjTar;
+
+	Enemy enemy;
+	enemy.model = enemyModel;
+	enemy.charaPos = VGet(0.0f, 30.0f, 660.0f);
 
 	while (true)
 	{
@@ -47,7 +52,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		}
 
 		player.CreateChara();
-		player.IsMouseOverGrid();
+		player.IsMouseOverGrid(); 
+		enemy.CreateChara();
 
 		switch (currentStage)
 		{
