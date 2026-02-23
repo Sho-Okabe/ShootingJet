@@ -17,7 +17,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 	const int FPS = 60;
 	SetupCamera_Ortho(400.0f);
-	int mdl = MV1LoadModel("model/chest15_grid.mqoz");
+	int mdl = MV1LoadModel("model/ChessFloor.mqoz");
 	int playerModel = MV1LoadModel("model/Capsule.mqoz");
 	int enemyModel = MV1LoadModel("model/Sphere.mqoz");
 	int bgm = LoadSoundMem("audio/bgm.mp3");
@@ -32,7 +32,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 	Player *player = new Player();
 	player->model = playerModel;
-	player->charaPos = ObjTar;
+	player->charaPos = OBJ_MAP;
 
 	Enemy enemyA, enemyB;
 	enemyA.model = enemyModel;
@@ -45,7 +45,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		ClearDrawScreen();
 
 		SetCameraPositionAndTarget_UpVecY(CAM_POS, OBJ_MAP);
-		MV1SetPosition(mdl, OBJ_MAP);
+		MV1SetPosition(mdl, OBJ_MAP); 
+		MV1SetScale(mdl, VGet(2.0f, 2.0f, 2.0f));
 		MV1DrawModel(mdl);
 		if (!playBGM)
 		{
@@ -69,7 +70,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 				player->IsMouseOverGrid();
 				enemyA.DestroyCheck(player);
 				enemyB.DestroyCheck(player);
-				if(enemyA.isDestroy && enemyB.isDestroy) currentStage = CLEAR;
+				//if(enemyA.isDestroy && enemyB.isDestroy) currentStage = CLEAR;
 
 				break;
 			case CLEAR:
