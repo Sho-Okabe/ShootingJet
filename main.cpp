@@ -60,7 +60,11 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		{
 			case START:
 				drawTextC(WIN_WIDTH * 0.5f, WIN_HEIGHT * 0.7f, "PRESS SPACE", 0xffffff, 50);
-				if (CheckHitKey(KEY_INPUT_SPACE) == 1) currentStage = PLAY;
+				if (CheckHitKey(KEY_INPUT_SPACE) == 1)
+				{
+					currentStage = PLAY;
+					enemy->isDestroy = false;
+				}
 				break;
 			case PLAY:
 				player->IsMouseOverGrid(enemy);
@@ -69,6 +73,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 				break;
 			case CLEAR:
 				drawTextC(WIN_WIDTH * 0.5f, WIN_HEIGHT * 0.7f, "GAME CLEAR", 0xffffff, 50);
+				break;
 			case OVER:
 				drawTextC(WIN_WIDTH * 0.5f, WIN_HEIGHT * 0.7f, "GAME OVER", 0xffffff, 50);
 			default:

@@ -19,7 +19,7 @@ bool InHitDistance(VECTOR v1, VECTOR v2)
 	float dz = v1.z - v2.z;
 	float distanceSquared = (dx * dx) + (dz * dz);
 
-	if (distanceSquared < 84.85f) return true;
+	if (distanceSquared < 0.01f) return true;
 	else return false;
 }
 
@@ -109,7 +109,7 @@ void Player::IsMouseOverGrid(Enemy* enemy)
 class Enemy : public Chara
 {
 public:
-	bool isDestroy = false;
+	bool isDestroy;
 	void DestroyCheck(Player* player);
 	void CreateChara();
 };
@@ -119,6 +119,7 @@ void Enemy::DestroyCheck(Player* player)
 	if (InHitDistance(player->charaPos, this->charaPos))
 	{
 		isDestroy = true;
+		if(isDestroy) drawTextC(1200 * 0.5f, 720 * 0.4f, "GAME CLEAR", 0xffffff, 50);
 	}
 }
 void Enemy::CreateChara()
