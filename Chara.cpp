@@ -66,12 +66,8 @@ void Player::CreateChara()
 		thisGridsPos[i] = gridPos;
 		DrawGrid(gridPos, GetColor(200, 200, 200), true);
 	}
-
-	VECTOR renderPos = VGet(charaPos.x, charaPos.y + 70.0f, charaPos.z);
-	MV1SetPosition(model, renderPos);
-	MV1SetScale(model, VGet(0.05f, 0.05f, 0.05f));
-	MV1DrawModel(model);
-	//Chara::CreateChara();
+		
+	Chara::CreateChara();
 }
 
 void Player::IsMouseOverGrid(Enemy* enemy)

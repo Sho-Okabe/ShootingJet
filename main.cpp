@@ -59,7 +59,6 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		switch (currentStage)
 		{
 			case START:
-
 				drawTextC(WIN_WIDTH * 0.5f, WIN_HEIGHT * 0.7f, "PRESS SPACE", 0xffffff, 50);
 				if (CheckHitKey(KEY_INPUT_SPACE) == 1) currentStage = PLAY;
 				break;
