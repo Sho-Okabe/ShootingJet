@@ -9,11 +9,13 @@ class Chara
 		virtual void CreateChara();
 };
 
+class Player;
+class Enemy;
 class Player : public Chara
 {
 	public:
 		void CreateChara();
-		void IsMouseOverGrid(); 
+		void IsMouseOverGrid(Enemy* enemy); 
 };
 
 class Enemy : public Chara 

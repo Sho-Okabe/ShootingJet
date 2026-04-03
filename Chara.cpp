@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include "DxLib.h"
+#include "UI.h"
 
 void DrawGrid(VECTOR pos, unsigned int Color, int FillFlag)//ŽlŠpŒ`‚ð•`‰æ‚·‚é
 {
@@ -12,6 +13,15 @@ void DrawGrid(VECTOR pos, unsigned int Color, int FillFlag)//ŽlŠpŒ`‚ð•`‰æ‚·‚é
 	DrawTriangle3D(v1, v2, v3, Color, FillFlag);
 	DrawTriangle3D(v3, v4, v1, Color, FillFlag);
 }
+bool InHitDistance(VECTOR v1, VECTOR v2)
+{
+	float dx = v1.x - v2.x;
+	float dz = v1.z - v2.z;
+	float distanceSquared = (dx * dx) + (dz * dz);
+
+	if (distanceSquared < 84.85f) return true;
+	else return false;
+}
 
 class Chara
 {
@@ -19,6 +29,9 @@ class Chara
 		int model;
 		VECTOR charaPos;
 		VECTOR thisGridsPos[4];
+		
+		int hp = 2;
+
 		virtual void CreateChara()
 		{
 			MV1SetPosition(model, charaPos);
@@ -27,14 +40,16 @@ class Chara
 		}
 };
 
+class Player;
+class Enemy;
 
+#pragma region PlayerClass
 class Player : public Chara
 {
-	public:
-		void CreateChara() override;
-		void IsMouseOverGrid();
+public:
+	void CreateChara() override;
+	void IsMouseOverGrid(Enemy* enemy);
 };
-
 void Player::CreateChara()
 {
 	float gridRange = 60.0f;
@@ -43,19 +58,19 @@ void Player::CreateChara()
 	int x_coords[] = { 1, 0, -1,  0 };
 	int z_coords[] = { 0, 1,  0, -1 };
 
-	for (int i = 0; i < 4; ++i) 
+	for (int i = 0; i < 4; ++i)
 	{
 		x = x_coords[i % 4];
 		z = z_coords[i % 4];
 		VECTOR gridPos = VAdd(VGet(x * gridRange, 0.0f, z * gridRange), charaPos);
 		thisGridsPos[i] = gridPos;
 		DrawGrid(gridPos, GetColor(200, 200, 200), true);
-    }
+	}
 
 	Chara::CreateChara();
 }
 
-void Player::IsMouseOverGrid()
+void Player::IsMouseOverGrid(Enemy* enemy)
 {
 	float gridSize = 30.0f;
 
@@ -80,27 +95,28 @@ void Player::IsMouseOverGrid()
 			DrawTriangle3D(v3, v4, v1, GetColor(200, 0, 0), true);
 
 			if ((GetMouseInput() & MOUSE_INPUT_LEFT) != 0)
-			{
+			{				
 				charaPos = thisGridsPos[i];
 			}
 		}
 	}
 }
 
+#pragma endregion
+
+#pragma region EnemyClass
+
 class Enemy : public Chara
 {
-	public:
-		bool isDestroy = false;
-		void DestroyCheck(Player* player);
-		void CreateChara();
+public:
+	bool isDestroy = false;
+	void DestroyCheck(Player* player);
+	void CreateChara();
 };
-
 void Enemy::DestroyCheck(Player* player)
 {
-	float dx = player->charaPos.x - this->charaPos.x;
-	float dz = player->charaPos.z - this->charaPos.z;
-	float distanceSquared = (dx * dx) + (dz * dz);
-	if (distanceSquared < 0.001f)
+
+	if (InHitDistance(player->charaPos, this->charaPos))
 	{
 		isDestroy = true;
 	}
@@ -113,3 +129,4 @@ void Enemy::CreateChara()
 	}
 }
 
+#pragma endregion

@@ -1,6 +1,6 @@
 ﻿  main.cpp
-C:\repos\SelfPractice\DxLibProjects\ShootingJet\main.cpp(66,44): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\repos\SelfPractice\DxLibProjects\ShootingJet\main.cpp(66,25): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\repos\SelfPractice\DxLibProjects\ShootingJet\main.cpp(77,44): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\repos\SelfPractice\DxLibProjects\ShootingJet\main.cpp(77,25): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\repos\SelfPractice\DxLibProjects\ShootingJet\main.cpp(63,44): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\repos\SelfPractice\DxLibProjects\ShootingJet\main.cpp(63,25): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\repos\SelfPractice\DxLibProjects\ShootingJet\main.cpp(72,44): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\repos\SelfPractice\DxLibProjects\ShootingJet\main.cpp(72,25): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
   ShootingJet.vcxproj -> C:\repos\SelfPractice\DxLibProjects\ShootingJet\x64\Debug\ShootingJet.exe

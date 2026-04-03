@@ -17,14 +17,14 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 	const int FPS = 60;
 	SetupCamera_Ortho(400.0f);
-	int mdl = MV1LoadModel("model/ChessFloor.mqoz");
+	int mdl = MV1LoadModel("model/chest15_grid.mqoz");
 	int playerModel = MV1LoadModel("model/Capsule.mqoz");
 	int enemyModel = MV1LoadModel("model/Sphere.mqoz");
 	int bgm = LoadSoundMem("audio/bgm.mp3");
 	bool playBGM = false;
 
 	const VECTOR CAM_POS = VGet(600.0f, 565.0f, 0.0f);
-	const VECTOR OBJ_MAP = VGet(0.0f, 0.0f, 600.0f);
+	const VECTOR OBJ_MAP = VGet(8.0f, 0.0f, 650.0f);
 	VECTOR ObjTar = VGet(0.0f, 10.0f, 600.0f);
 	enum PlayStage { START, PLAY, CLEAR, OVER };
 	PlayStage currentStage = START;
@@ -32,21 +32,19 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 	Player *player = new Player();
 	player->model = playerModel;
-	player->charaPos = OBJ_MAP;
+	player->charaPos = VGet(-180.0f, 0.0f, 600.0f);;
 
-	Enemy enemyA, enemyB;
-	enemyA.model = enemyModel;
-	enemyB.model = enemyModel;
-	enemyA.charaPos = VGet(0.0f, 30.0f, 720.0f);
-	enemyB.charaPos = VGet(0.0f, 30.0f, 480.0f);
+	Enemy *enemy = new Enemy();
+	enemy->model = enemyModel;
+	enemy->charaPos = VGet(0.0f, 30.0f, 720.0f);
 
 	while (true)
 	{
 		ClearDrawScreen();
 
 		SetCameraPositionAndTarget_UpVecY(CAM_POS, OBJ_MAP);
-		MV1SetPosition(mdl, OBJ_MAP); 
-		MV1SetScale(mdl, VGet(2.0f, 2.0f, 2.0f));
+		MV1SetPosition(mdl, OBJ_MAP);  
+		MV1SetScale(mdl, VGet(1.0f, 1.0f, 1.0f));
 		MV1DrawModel(mdl);
 		if (!playBGM)
 		{
@@ -55,8 +53,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		}
 
 		player->CreateChara();
-		enemyA.CreateChara();
-		enemyB.CreateChara();
+		enemy->CreateChara();
 
 
 		switch (currentStage)
@@ -67,14 +64,14 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 				if (CheckHitKey(KEY_INPUT_SPACE) == 1) currentStage = PLAY;
 				break;
 			case PLAY:
-				player->IsMouseOverGrid();
-				enemyA.DestroyCheck(player);
-				enemyB.DestroyCheck(player);
-				//if(enemyA.isDestroy && enemyB.isDestroy) currentStage = CLEAR;
-
+				player->IsMouseOverGrid(enemy);
+				enemy->DestroyCheck(player);
+				if (enemy->isDestroy) currentStage = CLEAR;
 				break;
 			case CLEAR:
 				drawTextC(WIN_WIDTH * 0.5f, WIN_HEIGHT * 0.7f, "GAME CLEAR", 0xffffff, 50);
+			case OVER:
+				drawTextC(WIN_WIDTH * 0.5f, WIN_HEIGHT * 0.7f, "GAME OVER", 0xffffff, 50);
 			default:
 				break;
 		}
