@@ -18,7 +18,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	const int FPS = 60;
 	SetupCamera_Ortho(400.0f);
 	int mdl = MV1LoadModel("model/chest15_grid.mqoz");
-	int playerModel = MV1LoadModel("model/Capsule.mqoz");
+	int playerModel = MV1LoadModel("model/robot_stand.mqoz");
 	int enemyModel = MV1LoadModel("model/Sphere.mqoz");
 	int bgm = LoadSoundMem("audio/bgm.mp3");
 	bool playBGM = false;
