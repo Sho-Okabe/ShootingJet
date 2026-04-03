@@ -1,10 +1,6 @@
-﻿  main.cpp
-C:\repos\SelfPractice\DxLibProjects\ShootingJet\main.cpp(62,44): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\repos\SelfPractice\DxLibProjects\ShootingJet\main.cpp(62,25): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\repos\SelfPractice\DxLibProjects\ShootingJet\main.cpp(75,44): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\repos\SelfPractice\DxLibProjects\ShootingJet\main.cpp(75,25): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\repos\SelfPractice\DxLibProjects\ShootingJet\main.cpp(78,44): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\repos\SelfPractice\DxLibProjects\ShootingJet\main.cpp(78,25): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+﻿  Chara.cpp
+C:\repos\SelfPractice\DxLibProjects\ShootingJet\Chara.cpp(138,44): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\repos\SelfPractice\DxLibProjects\ShootingJet\Chara.cpp(138,32): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
   Generating code
   1 of 14 functions ( 7.1%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation

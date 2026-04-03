@@ -66,7 +66,7 @@ void Player::CreateChara()
 		thisGridsPos[i] = gridPos;
 		DrawGrid(gridPos, GetColor(200, 200, 200), true);
 	}
-		
+
 	Chara::CreateChara();
 }
 
@@ -96,7 +96,23 @@ void Player::IsMouseOverGrid(Enemy* enemy)
 
 			if ((GetMouseInput() & MOUSE_INPUT_LEFT) != 0)
 			{				
-				charaPos = thisGridsPos[i];
+				charaPos = thisGridsPos[i]; 
+				switch (i)
+				{
+					case 0:
+						MV1SetRotationXYZ(model, VGet(0.0f, 270.0f * DX_PI_F / 180.0f, 0.0f));
+						break;
+					case 1:
+						MV1SetRotationXYZ(model, VGet(0.0f, 180.0f * DX_PI_F / 180.0f, 0.0f));
+						break;
+					case 2:
+						MV1SetRotationXYZ(model, VGet(0.0f, 90.0f * DX_PI_F / 180.0f, 0.0f));
+						break;
+					case 3:
+						MV1SetRotationXYZ(model, VGet(0.0f, 0.0f * DX_PI_F / 180.0f, 0.0f));
+						break;
+
+				}
 			}
 		}
 	}
