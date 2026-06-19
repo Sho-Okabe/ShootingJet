@@ -7,7 +7,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 {
 	const int WIN_WIDTH = 1200, WIN_HEIGHT = 720;
 
-	SetWindowText("Shooting Jet");
+	SetWindowText("Robo Fight");
 	SetGraphMode(WIN_WIDTH, WIN_HEIGHT, 32);
 	ChangeWindowMode(true);
 	if (DxLib_Init() == -1) return -1;
@@ -59,6 +59,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		switch (currentStage)
 		{
 			case START:
+				drawTextC(WIN_WIDTH * 0.5f, WIN_HEIGHT * 0.4f, "ROBO FIGHT", 0x5500fe, 80);
 				drawTextC(WIN_WIDTH * 0.5f, WIN_HEIGHT * 0.7f, "PRESS SPACE", 0xffffff, 50);
 				if (CheckHitKey(KEY_INPUT_SPACE) == 1)
 				{
