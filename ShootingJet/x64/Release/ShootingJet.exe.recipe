@@ -2,7 +2,7 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>C:\repos\SelfPractice\DxLibProjects\ShootingJet\x64\Release\ShootingJet.exe</FullPath>
+      <FullPath>C:\repos\SelfPractice\DxLibProjects\RoboFight\x64\Release\ShootingJet.exe</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />

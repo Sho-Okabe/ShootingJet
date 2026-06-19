@@ -3,8 +3,9 @@
 #include "DxLib.h"
 #include "UI.h"
 
-void DrawGrid(VECTOR pos, unsigned int Color, int FillFlag)//四角形を描画する
+void DrawGrid(VECTOR pos, unsigned int Color, int FillFlag) //四角形（グリッド）を描画する
 {
+	//グリッドサイズ設定
 	float gridSize = 30.0f;
 	VECTOR v1 = VAdd(VGet(1.0f * gridSize, 0.0f, 1.0f * gridSize), pos);
 	VECTOR v2 = VAdd(VGet(1.0f * gridSize, 0.0f, -1.0f * gridSize), pos);
@@ -13,7 +14,7 @@ void DrawGrid(VECTOR pos, unsigned int Color, int FillFlag)//四角形を描画する
 	DrawTriangle3D(v1, v2, v3, Color, FillFlag);
 	DrawTriangle3D(v3, v4, v1, Color, FillFlag);
 }
-bool InHitDistance(VECTOR v1, VECTOR v2)
+bool InHitDistance(VECTOR v1, VECTOR v2) //プレイヤーと敵の当たり判定
 {
 	float dx = v1.x - v2.x;
 	float dz = v1.z - v2.z;
@@ -23,16 +24,16 @@ bool InHitDistance(VECTOR v1, VECTOR v2)
 	else return false;
 }
 
-class Chara
+class Chara //キャラクタークラス
 {
 	public :
-		int model;
-		VECTOR charaPos;
-		VECTOR thisGridsPos[4];
+		int model; //モデル
+		VECTOR charaPos; //ポジション
+		VECTOR thisGridsPos[4]; //周りのグリッド
 		
 		int hp = 2;
 
-		virtual void CreateChara()
+		virtual void CreateChara() //mainでキャラクター表示
 		{
 			MV1SetPosition(model, charaPos);
 			MV1SetScale(model, VGet(0.2f, 0.2f, 0.2f));
@@ -50,7 +51,7 @@ public:
 	void CreateChara() override;
 	void IsMouseOverGrid(Enemy* enemy);
 };
-void Player::CreateChara()
+void Player::CreateChara()//プレイヤー表示スクリプト
 {
 	float gridRange = 60.0f;
 
@@ -58,6 +59,7 @@ void Player::CreateChara()
 	int x_coords[] = { 1, 0, -1,  0 };
 	int z_coords[] = { 0, 1,  0, -1 };
 
+	//周りグリッドレンダリング
 	for (int i = 0; i < 4; ++i)
 	{
 		x = x_coords[i % 4];
@@ -70,12 +72,13 @@ void Player::CreateChara()
 	Chara::CreateChara();
 }
 
-void Player::IsMouseOverGrid(Enemy* enemy)
+void Player::IsMouseOverGrid(Enemy* enemy) //プレイヤー操作のスクリプト
 {
 	float gridSize = 30.0f;
 
 	int mouseX, mouseY;
 	GetMousePoint(&mouseX, &mouseY);
+	//マウスのポジションと方向にスクリーン座標をワールド座標に変換（グリッドで操作するため）
 	VECTOR lineStart = ConvScreenPosToWorldPos(VGet((float)mouseX, (float)mouseY, 0.0f));
 	VECTOR lineEnd = ConvScreenPosToWorldPos(VGet((float)mouseX, (float)mouseY, 1.0f));
 
@@ -87,6 +90,7 @@ void Player::IsMouseOverGrid(Enemy* enemy)
 		VECTOR v4 = VAdd(VGet(-1.0f * gridSize, 0.0f, 1.0f * gridSize), thisGridsPos[i]);
 
 		HITRESULT_LINE Result_1, Result_2;
+		//DXライブラリーは四角形の判定がないので、三角形２つの判定を作り
 		Result_1 = HitCheck_Line_Triangle(lineStart, lineEnd, v1, v2, v3);
 		Result_2 = HitCheck_Line_Triangle(lineStart, lineEnd, v3, v4, v1);
 		if (Result_1.HitFlag == 1 || Result_2.HitFlag == 1)
@@ -94,9 +98,10 @@ void Player::IsMouseOverGrid(Enemy* enemy)
 			DrawTriangle3D(v1, v2, v3, GetColor(200, 0, 0), true);
 			DrawTriangle3D(v3, v4, v1, GetColor(200, 0, 0), true);
 
-			if ((GetMouseInput() & MOUSE_INPUT_LEFT) != 0)
+			if ((GetMouseInput() & MOUSE_INPUT_LEFT) != 0) //
 			{				
 				charaPos = thisGridsPos[i]; 
+				//プレイヤー方向を移動した向きに回転する
 				switch (i)
 				{
 					case 0:
@@ -129,9 +134,8 @@ public:
 	void DestroyCheck(Player* player);
 	void CreateChara();
 };
-void Enemy::DestroyCheck(Player* player)
+void Enemy::DestroyCheck(Player* player) //プレイヤーに当たったら破壊される
 {
-
 	if (InHitDistance(player->charaPos, this->charaPos))
 	{
 		isDestroy = true;

@@ -17,23 +17,27 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 	const int FPS = 60;
 	SetupCamera_Ortho(400.0f);
+	//モデルインポート
 	int mdl = MV1LoadModel("model/chest15_grid.mqoz");
 	int playerModel = MV1LoadModel("model/robot_stand.mqoz");
 	int enemyModel = MV1LoadModel("model/Sphere.mqoz");
 	int bgm = LoadSoundMem("audio/bgm.mp3");
 	bool playBGM = false;
 
+	//カメラ設定
 	const VECTOR CAM_POS = VGet(600.0f, 565.0f, 0.0f);
+	//マップ設定
 	const VECTOR OBJ_MAP = VGet(8.0f, 0.0f, 650.0f);
-	VECTOR ObjTar = VGet(0.0f, 10.0f, 600.0f);
+	//ゲームステージ
 	enum PlayStage { START, PLAY, CLEAR, OVER };
 	PlayStage currentStage = START;
-	float size = 30.0f;
 
+	//プレイヤー表示
 	Player *player = new Player();
 	player->model = playerModel;
 	player->charaPos = VGet(-180.0f, 0.0f, 600.0f);;
 
+	//敵表示
 	Enemy *enemy = new Enemy();
 	enemy->model = enemyModel;
 	enemy->charaPos = VGet(0.0f, 30.0f, 720.0f);
@@ -42,10 +46,13 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	{
 		ClearDrawScreen();
 
+		//カメラ表示
 		SetCameraPositionAndTarget_UpVecY(CAM_POS, OBJ_MAP);
+		//マップ表示
 		MV1SetPosition(mdl, OBJ_MAP);  
 		MV1SetScale(mdl, VGet(1.0f, 1.0f, 1.0f));
 		MV1DrawModel(mdl);
+		//BGM流し
 		if (!playBGM)
 		{
 			PlaySoundMem(bgm, DX_PLAYTYPE_LOOP);
@@ -59,6 +66,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		switch (currentStage)
 		{
 			case START:
+				//ゲームタイトル画面
 				drawTextC(WIN_WIDTH * 0.5f, WIN_HEIGHT * 0.4f, "ROBO FIGHT", 0x5500fe, 80);
 				drawTextC(WIN_WIDTH * 0.5f, WIN_HEIGHT * 0.7f, "PRESS SPACE", 0xffffff, 50);
 				if (CheckHitKey(KEY_INPUT_SPACE) == 1)
@@ -68,14 +76,16 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 				}
 				break;
 			case PLAY:
-				player->IsMouseOverGrid(enemy);
-				enemy->DestroyCheck(player);
-				if (enemy->isDestroy) currentStage = CLEAR;
+				player->IsMouseOverGrid(enemy); //プレイヤーと敵の当たり判定
+				enemy->DestroyCheck(player); //敵は破壊されたか
+				if (enemy->isDestroy) currentStage = CLEAR; //破壊されたかされたらゲームクリア
 				break;
 			case CLEAR:
+				//ゲームクリア画面
 				drawTextC(WIN_WIDTH * 0.5f, WIN_HEIGHT * 0.7f, "GAME CLEAR", 0xffffff, 50);
 				break;
 			case OVER:
+				//ゲームオーバー画面
 				drawTextC(WIN_WIDTH * 0.5f, WIN_HEIGHT * 0.7f, "GAME OVER", 0xffffff, 50);
 			default:
 				break;
