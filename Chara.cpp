@@ -2,6 +2,7 @@
 #include <vector>
 #include "DxLib.h"
 #include "UI.h"
+#include "Input.h"
 
 void DrawGrid(VECTOR pos, unsigned int Color, int FillFlag) //四角形（グリッド）を描画する
 {
@@ -98,7 +99,7 @@ void Player::IsMouseOverGrid(Enemy* enemy) //プレイヤー操作のスクリプト
 			DrawTriangle3D(v1, v2, v3, GetColor(200, 0, 0), true);
 			DrawTriangle3D(v3, v4, v1, GetColor(200, 0, 0), true);
 
-			if ((GetMouseInput() & MOUSE_INPUT_LEFT) != 0) //
+			if ((MouseTrigger() & MOUSE_INPUT_LEFT) != 0) //
 			{				
 				charaPos = thisGridsPos[i]; 
 				//プレイヤー方向を移動した向きに回転する

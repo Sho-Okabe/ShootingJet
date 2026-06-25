@@ -143,11 +143,13 @@
     <ClInclude Include="DxLibFile\DxDataTypeWin.h" />
     <ClInclude Include="DxLibFile\DxFunctionWin.h" />
     <ClInclude Include="DxLibFile\DxLib.h" />
+    <ClInclude Include="Input.h" />
     <ClInclude Include="Stage.h" />
     <ClInclude Include="UI.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Chara.cpp" />
+    <ClCompile Include="Input.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Stage.cpp" />
     <ClCompile Include="UI.cpp" />
