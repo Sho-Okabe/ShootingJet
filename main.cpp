@@ -41,6 +41,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	Enemy *enemy = new Enemy();
 	enemy->model = enemyModel;
 	enemy->charaPos = VGet(0.0f, 30.0f, 720.0f);
+	//enemy->isDestroy = false;
 
 	while (true)
 	{
@@ -62,17 +63,16 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		player->CreateChara();
 		enemy->CreateChara();
 
-
 		switch (currentStage)
 		{
 			case START:
 				//ゲームタイトル画面
 				drawTextC(WIN_WIDTH * 0.5f, WIN_HEIGHT * 0.4f, "ROBO FIGHT", 0x5500fe, 80);
 				drawTextC(WIN_WIDTH * 0.5f, WIN_HEIGHT * 0.7f, "PRESS SPACE", 0xffffff, 50);
+				enemy->isDestroy = false;
 				if (CheckHitKey(KEY_INPUT_SPACE) == 1)
 				{
 					currentStage = PLAY;
-					enemy->isDestroy = false;
 				}
 				break;
 			case PLAY:

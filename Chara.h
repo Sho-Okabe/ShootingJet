@@ -14,14 +14,14 @@ class Enemy;
 class Player : public Chara
 {
 	public:
-		void CreateChara();
+		void CreateChara() override;
 		void IsMouseOverGrid(Enemy* enemy); 
 };
 
 class Enemy : public Chara 
 {
 	public:
-		bool isDestroy;
+		bool isDestroy = false;
 		void DestroyCheck(Player* player);
-		void CreateChara();
+		void CreateChara() override;
 };

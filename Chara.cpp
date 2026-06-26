@@ -21,7 +21,7 @@ bool InHitDistance(VECTOR v1, VECTOR v2) //プレイヤーと敵の当たり判定
 	float dz = v1.z - v2.z;
 	float distanceSquared = (dx * dx) + (dz * dz);
 
-	if (distanceSquared < 0.01f) return true;
+	if (distanceSquared < 30.0f) return true;
 	else return false;
 }
 
@@ -31,8 +31,6 @@ class Chara //キャラクタークラス
 		int model; //モデル
 		VECTOR charaPos; //ポジション
 		VECTOR thisGridsPos[4]; //周りのグリッド
-		
-		int hp = 2;
 
 		virtual void CreateChara() //mainでキャラクター表示
 		{
@@ -133,14 +131,14 @@ class Enemy : public Chara
 public:
 	bool isDestroy;
 	void DestroyCheck(Player* player);
-	void CreateChara();
+	void CreateChara() override;
 };
 void Enemy::DestroyCheck(Player* player) //プレイヤーに当たったら破壊される
 {
 	if (InHitDistance(player->charaPos, this->charaPos))
 	{
-		isDestroy = true;
-		if(isDestroy) drawTextC(1200 * 0.5f, 720 * 0.4f, "GAME CLEAR", 0xffffff, 50);
+		this->isDestroy = true;
+		//if(isDestroy) drawTextC(1200 * 0.5f, 720 * 0.4f, "GAME CLEAR", 0xffffff, 50);
 	}
 }
 void Enemy::CreateChara()

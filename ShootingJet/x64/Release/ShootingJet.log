@@ -1,4 +1,6 @@
-﻿  main.cpp
+﻿  Chara.cpp
+  Stage.cpp
+  main.cpp
 C:\repos\SelfPractice\DxLibProjects\RoboFight\main.cpp(70,44): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
 C:\repos\SelfPractice\DxLibProjects\RoboFight\main.cpp(70,25): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
 C:\repos\SelfPractice\DxLibProjects\RoboFight\main.cpp(71,44): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
@@ -8,7 +10,7 @@ C:\repos\SelfPractice\DxLibProjects\RoboFight\main.cpp(85,25): warning C4244: 'a
 C:\repos\SelfPractice\DxLibProjects\RoboFight\main.cpp(89,44): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
 C:\repos\SelfPractice\DxLibProjects\RoboFight\main.cpp(89,25): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
   Generating code
-  1 of 14 functions ( 7.1%) were compiled, the rest were copied from previous compilation.
+  5 of 15 functions (33.3%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
     0 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
