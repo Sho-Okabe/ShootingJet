@@ -1,10 +1,2 @@
-﻿  main.cpp
-C:\repos\SelfPractice\DxLibProjects\RoboFight\main.cpp(70,44): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\repos\SelfPractice\DxLibProjects\RoboFight\main.cpp(70,25): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\repos\SelfPractice\DxLibProjects\RoboFight\main.cpp(71,44): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\repos\SelfPractice\DxLibProjects\RoboFight\main.cpp(71,25): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\repos\SelfPractice\DxLibProjects\RoboFight\main.cpp(85,44): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\repos\SelfPractice\DxLibProjects\RoboFight\main.cpp(85,25): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\repos\SelfPractice\DxLibProjects\RoboFight\main.cpp(89,44): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\repos\SelfPractice\DxLibProjects\RoboFight\main.cpp(89,25): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+﻿  Chara.cpp
   ShootingJet.vcxproj -> C:\repos\SelfPractice\DxLibProjects\RoboFight\x64\Debug\ShootingJet.exe
