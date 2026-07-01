@@ -35,13 +35,14 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	//プレイヤー表示
 	Player *player = new Player();
 	player->model = playerModel;
-	player->charaPos = VGet(-180.0f, 0.0f, 600.0f);;
+	player->charaStartPos = VGet(-180.0f, 0.0f, 600.0f);
+	player->charaPos = player->charaStartPos;
 
 	//敵表示
 	Enemy *enemy = new Enemy();
 	enemy->model = enemyModel;
-	enemy->charaPos = VGet(0.0f, 30.0f, 720.0f);
-	//enemy->isDestroy = false;
+	enemy->charaStartPos = VGet(0.0f, 30.0f, 720.0f);
+	enemy->charaPos = enemy->charaStartPos;
 
 	while (true)
 	{
@@ -82,7 +83,15 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 				break;
 			case CLEAR:
 				//ゲームクリア画面
-				drawTextC(WIN_WIDTH * 0.5f, WIN_HEIGHT * 0.7f, "GAME CLEAR", 0xffffff, 50);
+				drawTextC(WIN_WIDTH * 0.5f, WIN_HEIGHT * 0.4f, "GAME CLEAR", 0xffffff, 50);
+				drawTextC(WIN_WIDTH * 0.5f, WIN_HEIGHT * 0.7f, "PRESS SPACE TO REPLAY", 0xffffff, 50);
+				if (CheckHitKey(KEY_INPUT_SPACE) == 1)
+				{
+					player->charaPos = player->charaStartPos;
+					enemy->charaPos = enemy->charaStartPos;
+					enemy->isDestroy = false;
+					currentStage = PLAY;
+				}
 				break;
 			case OVER:
 				//ゲームオーバー画面

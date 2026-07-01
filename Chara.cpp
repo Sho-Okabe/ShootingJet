@@ -29,6 +29,7 @@ class Chara //キャラクタークラス
 {
 	public :
 		int model; //モデル
+		VECTOR charaStartPos; //スタートポジション
 		VECTOR charaPos; //ポジション
 		VECTOR thisGridsPos[4]; //周りのグリッド
 
